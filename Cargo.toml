@@ -5,4 +5,4 @@ edition = "2024"
 description = "A CLI tool for managing Prisma projects with Rust"
 
 [dependencies]
-prisma-client-rust-cli = { git = "https://github.com/Brendonovich/prisma-client-rust", rev = "3ac68d0052533d3ae0332d93a56a8ad169c2ee18" }
+prisma-client-rust-cli = { git = "https://github.com/asaadmohammed74/prisma-client-rust", rev = "dade22264b7ff5ed836f0e183e576769cf317060" }
