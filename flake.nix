@@ -64,7 +64,9 @@
           ];
 
           postInstall = ''
-            wrapProgram $out/bin/prisma-rust-cli --set PRISMA_GLOBAL_CACHE_DIR ${prisma-cli-bin.package}
+            wrapProgram $out/bin/prisma-rust-cli \
+              --set PRISMA_GLOBAL_CACHE_DIR ${prisma-cli-bin.package} \
+              --set CHECKPOINT_DISABLE true
           '';
         });
 

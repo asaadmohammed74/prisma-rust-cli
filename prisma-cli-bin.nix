@@ -78,10 +78,27 @@ rec {
 
     preFixup =
       let
-        libPath = lib.makeLibraryPath [ stdenv.cc.cc ];
+        libPath = lib.makeLibraryPath [ 
+          stdenv.cc.cc 
+          pkgs.zlib
+          pkgs.openssl
+        ];
       in
       ''
         export PRISMA_CLI_BIN="$out/prisma/binaries/cli/${prisma-cli-version}/prisma-cli-${binaryTarget}"
+        export PRISMA_QUERY_ENGINE_BIN="$out/prisma/binaries/cli/${prisma-cli-version}/${prisma-engines-commit}/prisma-query-engine-${operatingSystemSSL}"
+        export PRISMA_MIGRATION_ENGINE_BIN="$out/prisma/binaries/cli/${prisma-cli-version}/${prisma-engines-commit}/prisma-migration-engine-${operatingSystemSSL}"
+        export PRISMA_INTROSPECTION_ENGINE_BIN="$out/prisma/binaries/cli/${prisma-cli-version}/${prisma-engines-commit}/prisma-introspection-engine-${operatingSystemSSL}"
+        export PRISMA_FMT_BIN="$out/prisma/binaries/cli/${prisma-cli-version}/${prisma-engines-commit}/prisma-prisma-fmt-${operatingSystemSSL}"
+
+        # prisma-cli is special, so it's handled separately.
+        for bin in $PRISMA_QUERY_ENGINE_BIN $PRISMA_MIGRATION_ENGINE_BIN $PRISMA_INTROSPECTION_ENGINE_BIN $PRISMA_FMT_BIN; do
+          patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" $bin
+          patchelf --set-rpath ${libPath} $bin
+          chmod +x $bin
+
+          printf "Patched %s\n" $bin
+        done
 
         # prisma-cli is a binary packaged with pkg, autoPatchelf doesn't work.
         # We need to fix it manually.
