@@ -57,7 +57,15 @@
 
         prisma-cli-crate = craneLib.buildPackage (commonArgs // {
           inherit cargoArtifacts;
-          inherit (commonArgs) buildInputs nativeBuildInputs;
+          inherit (commonArgs) buildInputs;
+
+          nativeBuildInputs = commonArgs.nativeBuildInputs ++ [
+            pkgs.makeWrapper
+          ];
+
+          postInstall = ''
+            wrapProgram $out/bin/prisma-rust-cli --set PRISMA_GLOBAL_CACHE_DIR ${prisma-cli-bin.package}
+          '';
         });
 
         prisma =
@@ -95,11 +103,7 @@
           inherit prisma-cli-crate;
         };
 
-        packages.default = pkgs.writeShellScriptBin "prisma-rust-cli" ''
-          export PRISMA_CLI_BIN_DIR=${prisma-cli-bin.package}
-
-          exec ${prisma-cli-crate}/bin/prisma-rust-cli "$@"
-        '';
+        packages.default = prisma-cli-crate;
 
         devShells.default = craneLib.devShell {
           checks = self.checks.${system};
