@@ -1,0 +1,8 @@
+[package]
+name = "prisma-rust-cli"
+version = "0.1.0"
+edition = "2024"
+description = "A CLI tool for managing Prisma projects with Rust"
+
+[dependencies]
+prisma-client-rust-cli = { git = "https://github.com/Brendonovich/prisma-client-rust", rev = "3ac68d0052533d3ae0332d93a56a8ad169c2ee18" }

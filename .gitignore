@@ -1,0 +1,7 @@
+/target
+
+# direnv
+.direnv
+
+# nix build
+/result

@@ -1,0 +1,3 @@
+[toolchain]
+components = ["cargo", "rustc"]
+channel = "stable"
