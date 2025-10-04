@@ -2,11 +2,11 @@
   "nodes": {
     "crane": {
       "locked": {
-        "lastModified": 1758758545,
-        "narHash": "sha256-NU5WaEdfwF6i8faJ2Yh+jcK9vVFrofLcwlD/mP65JrI=",
+        "lastModified": 1759511609,
+        "narHash": "sha256-uU6Dq5OUgI9pEiMDwZZhvsoxYD+36xKIkYyFXDr//6A=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "95d528a5f54eaba0d12102249ce42f4d01f4e364",
+        "rev": "c5b48a59ccd5179ea626f47b05d2828c37fb31b7",
         "type": "github"
       },
       "original": {
@@ -145,26 +145,6 @@
         "type": "github"
       }
     },
-    "make-shell": {
-      "inputs": {
-        "flake-compat": [
-          "dedupe_flake-compat"
-        ]
-      },
-      "locked": {
-        "lastModified": 1733933815,
-        "narHash": "sha256-9JjM7eT66W4NJAXpGUsdyAFXhBxFWR2Z9LZwUa7Hli0=",
-        "owner": "nicknovitski",
-        "repo": "make-shell",
-        "rev": "ffeceae9956df03571ea8e96ef77c2924f13a63c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nicknovitski",
-        "repo": "make-shell",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1746461020,
@@ -183,53 +163,30 @@
     },
     "root": {
       "inputs": {
+        "crane": "crane",
         "dedupe_flake-compat": "dedupe_flake-compat",
         "dedupe_flake-utils": "dedupe_flake-utils",
         "dedupe_systems": "dedupe_systems",
         "flake-parts": "flake-parts",
         "git-hooks": "git-hooks",
         "import-tree": "import-tree",
-        "make-shell": "make-shell",
         "nixpkgs": "nixpkgs",
-        "rust-flake": "rust-flake",
+        "rust-overlay": "rust-overlay",
         "treefmt-nix": "treefmt-nix"
-      }
-    },
-    "rust-flake": {
-      "inputs": {
-        "crane": "crane",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": "rust-overlay"
-      },
-      "locked": {
-        "lastModified": 1759028837,
-        "narHash": "sha256-kUVZJqzYpQ5+OauDv/e2vMDognmhPWeqCI3uIbhi1OA=",
-        "owner": "juspay",
-        "repo": "rust-flake",
-        "rev": "79e7c8ef50cf83fe60d5d4f673351c14778048fa",
-        "type": "github"
-      },
-      "original": {
-        "owner": "juspay",
-        "repo": "rust-flake",
-        "type": "github"
       }
     },
     "rust-overlay": {
       "inputs": {
         "nixpkgs": [
-          "rust-flake",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1758940228,
-        "narHash": "sha256-sTS04L9LKqzP1oiVXYDwcMzfFSF0DnSJQFzZBpEgLFE=",
+        "lastModified": 1759544920,
+        "narHash": "sha256-yQwP0JOHi3Icq09GG5ufGuGrq2zIijglVFj3kkF2MHA=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "5bfedf3fbbf5caf8e39f7fcd62238f54d82aa1e2",
+        "rev": "bd3a63bbff2c4cb3cd48e9d49f54c2ccad457f70",
         "type": "github"
       },
       "original": {

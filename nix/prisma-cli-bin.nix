@@ -166,9 +166,5 @@
     in
     {
       packages.prisma-cli-bin = prisma-cli-bin;
-
-      make-shells.default.nativeBuildInputs = [
-        prisma-cli-bin
-      ];
     };
 }

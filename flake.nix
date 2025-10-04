@@ -20,13 +20,10 @@
 
     import-tree.url = "github:vic/import-tree";
 
-    make-shell = {
-      url = "github:nicknovitski/make-shell";
-      inputs.flake-compat.follows = "dedupe_flake-compat";
-    };
+    crane.url = "github:ipetkov/crane";
 
-    rust-flake = {
-      url = "github:juspay/rust-flake";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

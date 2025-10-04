@@ -2,3 +2,7 @@
 package.version = "0.1.0"
 resolver = "2"
 members = ["crates/*"]
+
+
+[workspace.metadata]
+crane.name = "prisma-rust-cli"
