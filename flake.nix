@@ -14,7 +14,6 @@
 
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
-      inputs.flake-compat.follows = "dedupe_flake-compat";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -26,17 +25,6 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
-
-  inputs = {
-    dedupe_flake-compat.url = "github:edolstra/flake-compat";
-
-    dedupe_flake-utils = {
-      url = "github:numtide/flake-utils";
-      inputs.systems.follows = "dedupe_systems";
-    };
-
-    dedupe_systems.url = "github:nix-systems/default";
   };
 
   outputs =
